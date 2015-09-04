@@ -1,54 +1,46 @@
 {
     "operations": {
-
         "CreateUser": {
             "httpMethod": "POST",
             "uri": "/users",
             "summary": "Create a new user account",
             "parameters": {
-
                 "brandRef": {
                     "description": "Brand in which to create the user.",
                     "location": "json",
                     "required": true,
                     "type": "numeric"
                 },
-
                 "username": {
                     "description": "",
                     "location": "json",
                     "required": true,
                     "type": "string"
                 },
-
                 "password": {
                     "description": "Password for the new user. This must be more than 6 characters in length.",
                     "location": "json",
                     "required": true,
                     "type": "string"
                 },
-
                 "email": {
                     "description": "E-mail address of the user. Must be a valid e-mail address e.g. name@domain.com.",
                     "location": "json",
                     "required": true,
                     "type": "string"
                 },
-
                 "firstName": {
                     "description": "First name of the user.",
                     "location": "json",
                     "required": true,
                     "type": "string"
                 },
-
                 "lastName": {
                     "description": "Last name of the user.",
                     "location": "json",
                     "required": true,
                     "type": "string"
                 },
-
                 "languageCode": {
                     "default": "en",
                     "description": "Initial language code for the user. This can be manually changed by the user.",
@@ -57,6 +49,51 @@
                     "type": "string"
                 }
 
+            }
+        },
+        "GetUsers": {
+            "httpMethod": "GET",
+            "uri": "/users",
+            "summary": "List all users in the API consumer’s brand",
+            "parameters": {
+                "limit": {
+                    "type": "integer",
+                    "description": "Number of users that will be returned in the response.",
+                    "default": 20,
+                    "location": "query",
+                    "required": false
+                },
+                "offset": {
+                    "type": "integer",
+                    "description": "Offset to the first user to be returned in the response.",
+                    "default": 0,
+                    "location": "query",
+                    "required": false
+                },
+                "showDeleted": {
+                    "type": "integer",
+                    "description": "Exclude users in the response that have been soft deleted. By default all users will be included whether they are deleted or not.",
+                    "location": "query",
+                    "required": false
+                },
+                "dateFrom": {
+                    "type": "string",
+                    "description": "Filter the response to users that have been created from and including this date. By default, all users will be incuded.",
+                    "location": "query",
+                    "required": false
+                },
+                "dateTo": {
+                    "type": "string",
+                    "description": "Filter the response to users that have been created up to and including this date. By default, all users will be incuded.",
+                    "location": "query",
+                    "required": false
+                },
+                "resellerRef": {
+                    "type": "integer",
+                    "description": "Version 44 and above only. Return only users belonging to a particular reseller. The reseller must belong to your brand.",
+                    "location": "query",
+                    "required": false
+                }
             }
         }
 
