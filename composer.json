@@ -1,6 +1,6 @@
 {
 
-    "name": "basekit/php-api-client",
+    "name": "juangirini/basekit-php-api-client",
     "description": "BaseKit PHP API client.",
 
     "authors": [
@@ -11,6 +11,10 @@
         {
             "name": "Ade Slade",
             "email": "adrian.slade@basekit.com"
+        },
+        {
+            "name": "Juan Girini",
+            "email": "juan.girini@gmail.com"
         }
     ],
 
