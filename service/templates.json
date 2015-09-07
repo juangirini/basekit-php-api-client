@@ -1,0 +1,58 @@
+{
+    "operations": {
+        "GetTemplates": {
+            "httpMethod": "GET",
+            "uri": "/v2/templates",
+            "summary": "List all templates available on this environment. Optionally, provide one or more filters to return a subset of templates. For example, you can return only the templates matching a tag or in a specific template group.",
+            "parameters": {
+                "limit": {
+                    "type": "integer",
+                    "description": "Number of users that will be returned in the response.",
+                    "default": 20,
+                    "location": "query",
+                    "required": false
+                },
+                "tag": {
+                    "type": "string",
+                    "Description": "Filter the response to include only those templates matching the specified tag string.",
+                    "location": "query",
+                    "required": false
+                },
+                "tagRef": {
+                    "type": "integer",
+                    "Description": "Filter the response to include only those templates matching the specified tag reference.",
+                    "location": "query",
+                    "required": false
+                },
+                "templateGroupRef": {
+                    "type": "integer",
+                    "description": "Filter the response to include only those templates in the specified template group. The template group is provided as a reference.",
+                    "location": "query",
+                    "required": false
+                },
+                "templateGroupRefs": {
+                    "type": "string",
+                    "description": "Filter the response to include only those templates in the specified set of template groups. The template groups are provided as a comma-separated list of references.",
+                    "location": "query",
+                    "required": false
+                },
+                "categoryKey": {
+                    "type": "string",
+                    "description": "Filter the response to include only those templates with the specified category key. The category key is a string representation of the category,for example the key “food-and-drink” matches the English text “Restaurants, Bars, Cafes & Clubs”.",
+                    "location": "query",
+                    "required": false
+                },
+                "accountHolderRef": {
+                    "type": "integer",
+                    "description": "Filter the response to include only those custom templates owned by the specified account holder.",
+                    "location": "query",
+                    "required": false
+                }
+            }
+        },
+        "GetTemplateCategories":{
+            "httpMethod": "GET",
+            "uri": "/v2/templates/categories"  
+        }
+    }
+}
