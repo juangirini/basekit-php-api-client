@@ -3,6 +3,7 @@
     "includes":[
         "pages.json",
         "sites.json",
-        "users.json"
+        "users.json",
+        "templates.json"
     ]
 }
