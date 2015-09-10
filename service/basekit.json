@@ -4,6 +4,7 @@
         "pages.json",
         "sites.json",
         "users.json",
-        "templates.json"
+        "templates.json",
+        "brandes.json"
     ]
 }

@@ -1,0 +1,8 @@
+{
+    "operations": {
+        "GetLanguages": {
+            "httpMethod": "GET",
+            "uri": "/brands/{brandRef}/languages"
+        }
+    }
+}
