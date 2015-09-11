@@ -95,6 +95,18 @@
                     "required": false
                 }
             }
+        },
+        "DeleteUser": {
+            "httpMethod": "DELETE",
+            "Summary":"Delete the specified user. The user is not deleted from the database, but it is marked for deletion and will not be included in further API calls unless deleted users are explicitly requested.",
+            "parameters": {
+                "userRef": {
+                    "location": "uri",
+                    "required": true,
+                    "type": "integer"
+                }
+            },
+            "uri": "/users/{userRef}"
         }
 
     }
