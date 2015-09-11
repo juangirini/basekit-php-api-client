@@ -37,6 +37,20 @@
                     "location": "json",
                     "required": false,
                     "type": "string"
+                },
+
+                "templateRef": {
+                    "description": "Template to use on the site. If not provided, the site will have a default template.",
+                    "location": "json",
+                    "required": false,
+                    "type": "integer"
+                },
+
+                "siteType": {
+                    "description": "Can be set to 'desktop' or 'responsive'. If you’re unsure of this value, ask your account manager for more information.",
+                    "location": "json",
+                    "required": false,
+                    "type": "string"
                 }
 
             }
