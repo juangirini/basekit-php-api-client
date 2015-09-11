@@ -107,6 +107,24 @@
                 }
             },
             "uri": "/users/{userRef}"
+        },
+        "GetUsersSites":{
+            "httpMethod": "GET",
+            "Summary":"List all sites associated with the user.",
+            "parameters": {
+                "userRef": {
+                    "location": "uri",
+                    "required": true,
+                    "type": "integer"
+                },
+                "deleted": {
+                    "type": "integer",
+                    "description": "Whether to include deleted sites with the result.",
+                    "location": "query",
+                    "required": false
+                }
+            },
+            "uri": "/users/{userRef}/sites"
         }
 
     }
