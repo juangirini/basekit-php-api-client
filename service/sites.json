@@ -50,7 +50,11 @@
                     "description": "Can be set to 'desktop' or 'responsive'. If you’re unsure of this value, ask your account manager for more information.",
                     "location": "json",
                     "required": false,
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                        "desktop",
+                        "responsive"
+                    ]
                 }
 
             }
