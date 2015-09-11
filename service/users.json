@@ -108,6 +108,17 @@
             },
             "uri": "/users/{userRef}"
         },
+        "GetUser":{
+            "httpMethod": "GET",
+            "parameters": {
+                "userRef": {
+                    "location": "uri",
+                    "required": true,
+                    "type": "integer"
+                }
+            },
+            "uri": "/users/{userRef}"
+        },
         "GetUsersSites":{
             "httpMethod": "GET",
             "Summary":"List all sites associated with the user.",
