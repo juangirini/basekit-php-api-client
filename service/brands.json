@@ -11,6 +11,18 @@
                 }
 
             }
+        },
+        "GetPackages": {
+            "httpMethod": "GET",
+            "uri": "/brands/{brandRef}/packages",
+            "parameters": {
+                "brandRef": {
+                    "location": "uri",
+                    "required": true,
+                    "type": "integer"
+                }
+
+            }
         }
     }
 }
