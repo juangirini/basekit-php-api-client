@@ -149,7 +149,7 @@
                 },
                 "siteRef":{
                     "location": "json",
-                    "required": true,
+                    "required": false,
                     "type": "numeric"
                 }
             }
