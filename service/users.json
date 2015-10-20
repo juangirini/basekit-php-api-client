@@ -159,6 +159,11 @@
             "Summary": "Update data for the specified user. This will only update the properties that have been included in the request. All properties that are missing from the request will remain the same.",
             "uri": "/users/{userRef}",
             "parameters": {
+                "userRef": {
+                    "location": "uri",
+                    "required": true,
+                    "type": "numeric"
+                },
                 "firstName": {
                     "type": "string",
                     "description": "1-150 characters.",
