@@ -121,7 +121,7 @@
         },
         "GetUsersSites":{
             "httpMethod": "GET",
-            "Summary":"List all sites associated with the user.",
+            "summary":"List all sites associated with the user.",
             "parameters": {
                 "userRef": {
                     "location": "uri",
@@ -151,6 +151,43 @@
                     "location": "json",
                     "required": false,
                     "type": "numeric"
+                }
+            }
+        },
+        "EditUser":{
+            "httpMethod": "PUT",
+            "Summary": "Update data for the specified user. This will only update the properties that have been included in the request. All properties that are missing from the request will remain the same.",
+            "uri": "/users/{userRef}",
+            "parameters": {
+                "firstName": {
+                    "type": "string",
+                    "description": "1-150 characters.",
+                    "location": "json"
+                },
+                "lastName": {
+                    "type": "string",
+                    "description": "1-150 characters.",
+                    "location": "json"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "Username to be used to login the user to their account and sites. 1-255 characters.",
+                    "location": "json"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "7-100 characters. Prior to version 7.37 the maximum length was 19 characters.",
+                    "location": "json"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "E-mail address of the user. E-mails sent from the system in response to user lifecycle events (for example, subscription payment, renewal payments, cancellation, etc.) are sent to this address. 5-255 characters.",
+                    "location": "json"
+                },
+                "languageCode": {
+                    "type": "string",
+                    "description": "User’s language code. See List Brand Languages to determine the languages that are available. http://apidocs.basekit.com/brands/#get-languages",
+                    "location": "json"
                 }
             }
         }
