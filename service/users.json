@@ -1,227 +1,228 @@
 {
-    "operations": {
-        "CreateUser": {
-            "httpMethod": "POST",
-            "uri": "/users",
-            "summary": "Create a new user account",
-            "parameters": {
-                "brandRef": {
-                    "description": "Brand in which to create the user.",
-                    "location": "json",
-                    "required": true,
-                    "type": "numeric"
-                },
-                "username": {
-                    "description": "",
-                    "location": "json",
-                    "required": true,
-                    "type": "string"
-                },
-                "password": {
-                    "description": "Password for the new user. This must be more than 6 characters in length.",
-                    "location": "json",
-                    "required": true,
-                    "type": "string"
-                },
-                "email": {
-                    "description": "E-mail address of the user. Must be a valid e-mail address e.g. name@domain.com.",
-                    "location": "json",
-                    "required": true,
-                    "type": "string"
-                },
-                "firstName": {
-                    "description": "First name of the user.",
-                    "location": "json",
-                    "required": true,
-                    "type": "string"
-                },
-                "lastName": {
-                    "description": "Last name of the user.",
-                    "location": "json",
-                    "required": true,
-                    "type": "string"
-                },
-                "languageCode": {
-                    "default": "en",
-                    "description": "Initial language code for the user. This can be manually changed by the user.",
-                    "location": "json",
-                    "required": true,
-                    "type": "string"
-                }
-
-            }
+  "operations": {
+    "CreateUser": {
+      "httpMethod": "POST",
+      "uri": "/users",
+      "summary": "Create a new user account",
+      "parameters": {
+        "brandRef": {
+          "description": "Brand in which to create the user.",
+          "location": "json",
+          "required": true,
+          "type": "numeric"
         },
-        "GetUsers": {
-            "httpMethod": "GET",
-            "uri": "/users",
-            "summary": "List all users in the API consumer’s brand",
-            "parameters": {
-                "limit": {
-                    "type": "integer",
-                    "description": "Number of users that will be returned in the response.",
-                    "default": 20,
-                    "location": "query",
-                    "required": false
-                },
-                "offset": {
-                    "type": "integer",
-                    "description": "Offset to the first user to be returned in the response.",
-                    "default": 0,
-                    "location": "query",
-                    "required": false
-                },
-                "showDeleted": {
-                    "type": "integer",
-                    "description": "Exclude users in the response that have been soft deleted. By default all users will be included whether they are deleted or not.",
-                    "location": "query",
-                    "required": false
-                },
-                "dateFrom": {
-                    "type": "string",
-                    "description": "Filter the response to users that have been created from and including this date. By default, all users will be incuded.",
-                    "location": "query",
-                    "required": false
-                },
-                "dateTo": {
-                    "type": "string",
-                    "description": "Filter the response to users that have been created up to and including this date. By default, all users will be incuded.",
-                    "location": "query",
-                    "required": false
-                },
-                "resellerRef": {
-                    "type": "integer",
-                    "description": "Version 44 and above only. Return only users belonging to a particular reseller. The reseller must belong to your brand.",
-                    "location": "query",
-                    "required": false
-                }
-            }
+        "username": {
+          "description": "",
+          "location": "json",
+          "required": true,
+          "type": "string"
         },
-        "DeleteUser": {
-            "httpMethod": "DELETE",
-            "Summary":"Delete the specified user. The user is not deleted from the database, but it is marked for deletion and will not be included in further API calls unless deleted users are explicitly requested.",
-            "parameters": {
-                "userRef": {
-                    "location": "uri",
-                    "required": true,
-                    "type": "integer"
-                }
-            },
-            "uri": "/users/{userRef}"
+        "password": {
+          "description": "Password for the new user. This must be more than 6 characters in length.",
+          "location": "json",
+          "required": true,
+          "type": "string"
         },
-        "GetUser":{
-            "httpMethod": "GET",
-            "parameters": {
-                "userRef": {
-                    "location": "uri",
-                    "required": true,
-                    "type": "integer"
-                }
-            },
-            "uri": "/users/{userRef}"
+        "email": {
+          "description": "E-mail address of the user. Must be a valid e-mail address e.g. name@domain.com.",
+          "location": "json",
+          "required": true,
+          "type": "string"
         },
-        "GetUsersSites":{
-            "httpMethod": "GET",
-            "summary":"List all sites associated with the user.",
-            "parameters": {
-                "userRef": {
-                    "location": "uri",
-                    "required": true,
-                    "type": "integer"
-                },
-                "deleted": {
-                    "type": "integer",
-                    "description": "Whether to include deleted sites with the result.",
-                    "location": "query",
-                    "required": false
-                }
-            },
-            "uri": "/users/{userRef}/sites"
+        "firstName": {
+          "description": "First name of the user.",
+          "location": "json",
+          "required": true,
+          "type": "string"
         },
-        "CreateAutoLoginHash":{
-            "httpMethod": "POST",
-            "uri": "/users/{userRef}/auto-login",
-            "summary": "Automatically login an account holder to one of the sites that they own. This method will return a secret hash string that can be used to provide a login URL to the user. The login URL will automatically log the user in to their website in the editor. If the site does not have a template yet then the user will arrive in the template picker.",
-            "parameters": {
-                "userRef": {
-                    "location": "uri",
-                    "required": true,
-                    "type": "numeric"
-                },
-                "siteRef":{
-                    "location": "json",
-                    "required": false,
-                    "type": "numeric"
-                }
-            }
+        "lastName": {
+          "description": "Last name of the user.",
+          "location": "json",
+          "required": true,
+          "type": "string"
         },
-        "EditUser":{
-            "httpMethod": "PUT",
-            "summary": "Update data for the specified user. This will only update the properties that have been included in the request. All properties that are missing from the request will remain the same.",
-            "uri": "/users/{userRef}",
-            "parameters": {
-                "userRef": {
-                    "location": "uri",
-                    "required": true,
-                    "type": "numeric"
-                },
-                "firstName": {
-                    "type": "string",
-                    "description": "1-150 characters.",
-                    "location": "json"
-                },
-                "lastName": {
-                    "type": "string",
-                    "description": "1-150 characters.",
-                    "location": "json"
-                },
-                "username": {
-                    "type": "string",
-                    "description": "Username to be used to login the user to their account and sites. 1-255 characters.",
-                    "location": "json"
-                },
-                "password": {
-                    "type": "string",
-                    "description": "7-100 characters. Prior to version 7.37 the maximum length was 19 characters.",
-                    "location": "json"
-                },
-                "email": {
-                    "type": "string",
-                    "description": "E-mail address of the user. E-mails sent from the system in response to user lifecycle events (for example, subscription payment, renewal payments, cancellation, etc.) are sent to this address. 5-255 characters.",
-                    "location": "json"
-                },
-                "languageCode": {
-                    "type": "string",
-                    "description": "User’s language code. See List Brand Languages to determine the languages that are available. http://apidocs.basekit.com/brands/#get-languages",
-                    "location": "json"
-                }
-            }
-        },
-        "AnonymiseUser":{
-            "httpMethod": "POST",
-            "summary": "Anonymises the specified user, setting all personal details to “anonymised”. See our handy guide on deleting users. http://apidocs.basekit.com/deleting-users.html",
-            "uri": "/users/{userRef}/anonymise"
-        },
-        "AddUserPackage":{
-            "httpMethod": "POST",
-            "summary": "Associate a package to the specified user. The user will inherit all the features and capabilities that are available in the package. This method is used for Subscription, Upgrade, Downgrade and Cancellation. A user may only have one subscription package. If a new subscription package is associated with their account via this method then the existing subscription package is automatically removed.",
-            "uri": "/users/{userRef}/account-packages",
-            "parameters": {
-                "userRef": {
-                    "location": "uri",
-                    "required": true,
-                    "type": "numeric"
-                },
-                "packageRef": {
-                    "required": true,
-                    "type": "numeric",
-                    "description": "Package to add."
-                },
-                "billingFrequency": {
-                    "required": false,
-                    "type": "numeric",
-                    "description": "Value is in months. Typically this will be 1 for monthly or 12 for annual, but it can be any number. It is critical that the correct billing frequency is passed in as this is used for provisioning and billing of the user."
-                }
-            }
+        "languageCode": {
+          "default": "en",
+          "description": "Initial language code for the user. This can be manually changed by the user.",
+          "location": "json",
+          "required": true,
+          "type": "string"
         }
+      }
+    },
+    "GetUsers": {
+      "httpMethod": "GET",
+      "uri": "/users",
+      "summary": "List all users in the API consumer’s brand",
+      "parameters": {
+        "limit": {
+          "type": "integer",
+          "description": "Number of users that will be returned in the response.",
+          "default": 20,
+          "location": "query",
+          "required": false
+        },
+        "offset": {
+          "type": "integer",
+          "description": "Offset to the first user to be returned in the response.",
+          "default": 0,
+          "location": "query",
+          "required": false
+        },
+        "showDeleted": {
+          "type": "integer",
+          "description": "Exclude users in the response that have been soft deleted. By default all users will be included whether they are deleted or not.",
+          "location": "query",
+          "required": false
+        },
+        "dateFrom": {
+          "type": "string",
+          "description": "Filter the response to users that have been created from and including this date. By default, all users will be incuded.",
+          "location": "query",
+          "required": false
+        },
+        "dateTo": {
+          "type": "string",
+          "description": "Filter the response to users that have been created up to and including this date. By default, all users will be incuded.",
+          "location": "query",
+          "required": false
+        },
+        "resellerRef": {
+          "type": "integer",
+          "description": "Version 44 and above only. Return only users belonging to a particular reseller. The reseller must belong to your brand.",
+          "location": "query",
+          "required": false
+        }
+      }
+    },
+    "DeleteUser": {
+      "httpMethod": "DELETE",
+      "Summary": "Delete the specified user. The user is not deleted from the database, but it is marked for deletion and will not be included in further API calls unless deleted users are explicitly requested.",
+      "parameters": {
+        "userRef": {
+          "location": "uri",
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "uri": "/users/{userRef}"
+    },
+    "GetUser": {
+      "httpMethod": "GET",
+      "parameters": {
+        "userRef": {
+          "location": "uri",
+          "required": true,
+          "type": "integer"
+        }
+      },
+      "uri": "/users/{userRef}"
+    },
+    "GetUsersSites": {
+      "httpMethod": "GET",
+      "summary": "List all sites associated with the user.",
+      "parameters": {
+        "userRef": {
+          "location": "uri",
+          "required": true,
+          "type": "integer"
+        },
+        "deleted": {
+          "type": "integer",
+          "description": "Whether to include deleted sites with the result.",
+          "location": "query",
+          "required": false
+        }
+      },
+      "uri": "/users/{userRef}/sites"
+    },
+    "CreateAutoLoginHash": {
+      "httpMethod": "POST",
+      "uri": "/users/{userRef}/auto-login",
+      "summary": "Automatically login an account holder to one of the sites that they own. This method will return a secret hash string that can be used to provide a login URL to the user. The login URL will automatically log the user in to their website in the editor. If the site does not have a template yet then the user will arrive in the template picker.",
+      "parameters": {
+        "userRef": {
+          "location": "uri",
+          "required": true,
+          "type": "numeric"
+        },
+        "siteRef": {
+          "location": "json",
+          "required": false,
+          "type": "numeric"
+        }
+      }
+    },
+    "EditUser": {
+      "httpMethod": "PUT",
+      "summary": "Update data for the specified user. This will only update the properties that have been included in the request. All properties that are missing from the request will remain the same.",
+      "uri": "/users/{userRef}",
+      "parameters": {
+        "userRef": {
+          "location": "uri",
+          "required": true,
+          "type": "numeric"
+        },
+        "firstName": {
+          "type": "string",
+          "description": "1-150 characters.",
+          "location": "json"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "1-150 characters.",
+          "location": "json"
+        },
+        "username": {
+          "type": "string",
+          "description": "Username to be used to login the user to their account and sites. 1-255 characters.",
+          "location": "json"
+        },
+        "password": {
+          "type": "string",
+          "description": "7-100 characters. Prior to version 7.37 the maximum length was 19 characters.",
+          "location": "json"
+        },
+        "email": {
+          "type": "string",
+          "description": "E-mail address of the user. E-mails sent from the system in response to user lifecycle events (for example, subscription payment, renewal payments, cancellation, etc.) are sent to this address. 5-255 characters.",
+          "location": "json"
+        },
+        "languageCode": {
+          "type": "string",
+          "description": "User’s language code. See List Brand Languages to determine the languages that are available. http://apidocs.basekit.com/brands/#get-languages",
+          "location": "json"
+        }
+      }
+    },
+    "AnonymiseUser": {
+      "httpMethod": "POST",
+      "summary": "Anonymises the specified user, setting all personal details to “anonymised”. See our handy guide on deleting users. http://apidocs.basekit.com/deleting-users.html",
+      "uri": "/users/{userRef}/anonymise"
+    },
+    "AddUserPackage": {
+      "httpMethod": "POST",
+      "summary": "Associate a package to the specified user. The user will inherit all the features and capabilities that are available in the package. This method is used for Subscription, Upgrade, Downgrade and Cancellation. A user may only have one subscription package. If a new subscription package is associated with their account via this method then the existing subscription package is automatically removed.",
+      "uri": "/users/{userRef}/account-packages",
+      "parameters": {
+        "userRef": {
+          "location": "uri",
+          "required": true,
+          "type": "numeric"
+        },
+        "packageRef": {
+          "required": true,
+          "type": "numeric",
+          "description": "Package to add.",
+          "location": "json"
+        },
+        "billingFrequency": {
+          "required": false,
+          "type": "numeric",
+          "description": "Value is in months. Typically this will be 1 for monthly or 12 for annual, but it can be any number. It is critical that the correct billing frequency is passed in as this is used for provisioning and billing of the user.",
+          "location": "json"
+        }
+      }
     }
+  }
 }
