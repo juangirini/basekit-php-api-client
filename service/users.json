@@ -156,7 +156,7 @@
         },
         "EditUser":{
             "httpMethod": "PUT",
-            "Summary": "Update data for the specified user. This will only update the properties that have been included in the request. All properties that are missing from the request will remain the same.",
+            "summary": "Update data for the specified user. This will only update the properties that have been included in the request. All properties that are missing from the request will remain the same.",
             "uri": "/users/{userRef}",
             "parameters": {
                 "userRef": {
@@ -198,8 +198,30 @@
         },
         "AnonymiseUser":{
             "httpMethod": "POST",
-            "Summary": "Anonymises the specified user, setting all personal details to “anonymised”. See our handy guide on deleting users. http://apidocs.basekit.com/deleting-users.html",
+            "summary": "Anonymises the specified user, setting all personal details to “anonymised”. See our handy guide on deleting users. http://apidocs.basekit.com/deleting-users.html",
             "uri": "/users/{userRef}/anonymise"
+        },
+        "AddUserPackage":{
+            "httpMethod": "POST",
+            "summary": "Associate a package to the specified user. The user will inherit all the features and capabilities that are available in the package. This method is used for Subscription, Upgrade, Downgrade and Cancellation. A user may only have one subscription package. If a new subscription package is associated with their account via this method then the existing subscription package is automatically removed.",
+            "uri": "/users/{userRef}/account-packages",
+            "parameters": {
+                "userRef": {
+                    "location": "uri",
+                    "required": true,
+                    "type": "numeric"
+                },
+                "packageRef": {
+                    "required": true,
+                    "type": "numeric",
+                    "description": "Package to add."
+                },
+                "billingFrequency": {
+                    "required": false,
+                    "type": "numeric",
+                    "description": "Value is in months. Typically this will be 1 for monthly or 12 for annual, but it can be any number. It is critical that the correct billing frequency is passed in as this is used for provisioning and billing of the user."
+                }
+            }
         }
     }
 }
