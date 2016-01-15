@@ -217,7 +217,6 @@
           "location": "json"
         },
         "billingFrequency": {
-          "required": false,
           "type": "numeric",
           "description": "Value is in months. Typically this will be 1 for monthly or 12 for annual, but it can be any number. It is critical that the correct billing frequency is passed in as this is used for provisioning and billing of the user.",
           "location": "json"
