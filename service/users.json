@@ -205,6 +205,7 @@
           "required": true,
           "type": "numeric"
         }
+      }
     },
     "AddUserPackage": {
       "httpMethod": "POST",
