@@ -198,7 +198,13 @@
     "AnonymiseUser": {
       "httpMethod": "POST",
       "summary": "Anonymises the specified user, setting all personal details to “anonymised”. See our handy guide on deleting users. http://apidocs.basekit.com/deleting-users.html",
-      "uri": "/users/{userRef}/anonymise"
+      "uri": "/users/{userRef}/anonymise",
+      "parameters": {
+        "userRef": {
+          "location": "uri",
+          "required": true,
+          "type": "numeric"
+        }
     },
     "AddUserPackage": {
       "httpMethod": "POST",
