@@ -361,6 +361,16 @@
         }
       }
     },
+    "GetSite": {
+      "httpMethod": "GET",
+      "parameters": {
+        "siteRef": {
+          "type": "integer",
+          "required": true,
+          "location": "uri"
+        }
+      }
+    },
     "GetSites": {
       "httpMethod": "GET",
       "parameters": {
