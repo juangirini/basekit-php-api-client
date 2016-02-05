@@ -363,6 +363,7 @@
     },
     "GetSite": {
       "httpMethod": "GET",
+      "uri": "/sites/{siteRef}",
       "parameters": {
         "siteRef": {
           "type": "integer",
