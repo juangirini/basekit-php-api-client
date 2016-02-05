@@ -330,7 +330,7 @@
       }
     },
     "UnmapDomain": {
-      "httpMethod": "POST",
+      "httpMethod": "DELETE",
       "uri": "/sites/{siteRef}/domains/{domainRef}",
       "summary": "Remove a domain mapping from a site. The domain is completely removed and will no longer be mapped to any site. Note that if the DNS for the unmapped domain is unchanged then any subsequent requests to this domain will resolve to a holding page.",
       "parameters": {
