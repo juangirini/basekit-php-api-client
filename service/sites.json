@@ -367,7 +367,8 @@
         "siteRef": {
           "type": "integer",
           "required": true,
-          "location": "uri"
+          "location": "uri",
+          "description": "Site Ref"
         }
       }
     },
